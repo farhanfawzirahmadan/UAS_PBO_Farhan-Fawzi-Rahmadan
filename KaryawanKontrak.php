@@ -37,4 +37,4 @@ class KaryawanKontrak extends Karyawan {
         return "Agensi: " . $this->agensi_penyalur . " (Durasi Kontrak: " . $this->durasi_kontrak_bulan . " Bulan)";
     }
 }
-?>
+?> 

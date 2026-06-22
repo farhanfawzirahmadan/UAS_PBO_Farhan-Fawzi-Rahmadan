@@ -37,4 +37,4 @@ class KaryawanTetap extends Karyawan {
         return "ID Opsi Saham: " . $this->opsi_saham_id . " (Tunjangan Kesehatan: Rp " . number_format($this->tunjangan_kesehatan, 0, ',', '.') . ")";
     }
 }
-?>
+?> 

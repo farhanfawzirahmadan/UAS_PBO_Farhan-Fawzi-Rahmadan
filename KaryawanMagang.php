@@ -29,7 +29,7 @@ class KaryawanMagang extends Karyawan {
 
     // Implementasi Metode Abstract hitung gaji bersih (Magang langsung dari uang saku)
     public function hitung_gaji_clean() {
-        return $this->uang_saku_bulanan;
+        return $this->uang_saku_bulanan * 0.80;
     }
 
     // Implementasi Metode Abstract tampil info spesifik
@@ -37,4 +37,4 @@ class KaryawanMagang extends Karyawan {
         return "Sertifikat: " . $this->sertifikat_kampus_merdeka . " (Uang Saku Bulanan: Rp " . number_format($this->uang_saku_bulanan, 0, ',', '.') . ")";
     }
 }
-?>
+?> 
