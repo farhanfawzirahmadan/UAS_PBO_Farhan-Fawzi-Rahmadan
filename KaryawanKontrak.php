@@ -2,7 +2,7 @@
 // KaryawanKontrak.php
 require_once 'karyawan.php';
 
-class KaryawanKontrak extends Karyawan {
+class KaryawanKontrak extends karyawan {
     // Properti tambahan spesifik jalur Kontrak
     private $durasi_kontrak_bulan;
     private $agensi_penyalur; 
@@ -28,7 +28,7 @@ class KaryawanKontrak extends Karyawan {
     }
 
     // Implementasi Metode Abstract hitung gaji bersih
-    public function hitung_gaji_clean() {
+    public function hitung_gaji_bersih() {
         return $this->getHariKerjaMasuk() * $this->getGajiDasarPerHari();
     }
 

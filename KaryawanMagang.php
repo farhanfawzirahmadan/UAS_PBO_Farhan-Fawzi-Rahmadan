@@ -2,7 +2,7 @@
 // KaryawanMagang.php
 require_once 'karyawan.php';
 
-class KaryawanMagang extends Karyawan {
+class KaryawanMagang extends karyawan {
     // Properti tambahan spesifik jalur Magang
     private $uang_saku_bulanan; 
     private $sertifikat_kampus_merdeka; 
@@ -28,7 +28,7 @@ class KaryawanMagang extends Karyawan {
     }
 
     // Implementasi Metode Abstract hitung gaji bersih (Magang langsung dari uang saku)
-    public function hitung_gaji_clean() {
+    public function hitung_gaji_bersih() {
         return $this->uang_saku_bulanan * 0.80;
     }
 

@@ -2,7 +2,7 @@
 // KaryawanTetap.php
 require_once 'karyawan.php';
 
-class KaryawanTetap extends Karyawan {
+class KaryawanTetap extends karyawan {
     // Properti tambahan spesifik jalur Tetap
     private $tunjangan_kesehatan; 
     private $opsi_saham_id; 
@@ -28,7 +28,7 @@ class KaryawanTetap extends Karyawan {
     }
 
     // Implementasi Metode Abstract hitung gaji bersih
-    public function hitung_gaji_clean() {
+    public function hitung_gaji_bersih() {
         return ($this->getHariKerjaMasuk() * $this->getGajiDasarPerHari()) + $this->tunjangan_kesehatan;
     }
 
