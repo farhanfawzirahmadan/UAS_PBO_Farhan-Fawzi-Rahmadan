@@ -1,41 +1,77 @@
 <?php
-// Karyawan.php - Abstract Class Karyawan untuk UAS PBO Farhan
+// Karyawan.php - Abstract Class Karyawan Terenkapsulasi untuk UAS PBO Farhan
 
 abstract class Karyawan {
-    // Atribut Umum (Pake protected biar bisa diwarisin langsung ke class anak)
-    protected $id_karyawan;
-    protected $nama_karyawan;
-    protected $departemen;
-    protected $hari_kerja_masuk;
-    protected $gaji_dasar_per_hari;
-    protected $jenis_karyawan;
+    // Atribut Terenkapsulasi (Menggunakan private agar aman dan terisolasi)
+    private $id_karyawan;
+    private $nama_karyawan;
+    private $departemen;
+    private $hari_kerja_masuk;
+    private $gaji_dasar_per_hari;
 
-    // Constructor buat inisialisasi properti dasar pas objek dibuat
-    public function __construct($id_karyawan, $nama_karyawan, $departemen, $hari_kerja_masuk, $gaji_dasar_per_hari, $jenis_karyawan) {
+    // Constructor untuk inisialisasi data pas objek dibuat
+    public function __construct($id_karyawan, $nama_karyawan, $departemen, $hari_kerja_masuk, $gaji_dasar_per_hari) {
         $this->id_karyawan          = $id_karyawan;
         $this->nama_karyawan        = $nama_karyawan;
         $this->departemen           = $departemen;
         $this->hari_kerja_masuk     = $hari_kerja_masuk;
         $this->gaji_dasar_per_hari  = $gaji_dasar_per_hari;
-        $this->jenis_karyawan       = $jenis_karyawan;
     }
 
-    // Getter biasa buat ambil data nama
-    public function getNama() {
+    // ================= GETTER & SETTER (Pintu Akses Enkapsulasi) =================
+    
+    public function getIdKaryawan() {
+        return $this->id_karyawan;
+    }
+
+    public function setIdKaryawan($id_karyawan) {
+        $this->id_karyawan = $id_karyawan;
+    }
+
+    public function getNamaKaryawan() {
         return $this->nama_karyawan;
     }
 
-    // Getter buat ambil jenis karyawan
-    public function getJenis() {
-        return $this->jenis_karyawan;
+    public function setNamaKaryawan($nama_karyawan) {
+        $this->nama_karyawan = $nama_karyawan;
     }
 
+    public function getDepartemen() {
+        return $this->departemen;
+    }
+
+    public function setDepartemen($departemen) {
+        $this->departemen = $departemen;
+    }
+
+    public function getHariKerjaMasuk() {
+        return $this->hari_kerja_masuk;
+    }
+
+    public function setHariKerjaMasuk($hari_kerja_masuk) {
+        $this->hari_kerja_masuk = $hari_kerja_masuk;
+    }
+
+    public function getGajiDasarPerHari() {
+        return $this->gaji_dasar_per_hari;
+    }
+
+    public function setGajiDasarPerHari($gaji_dasar_per_hari) {
+        $this->gaji_dasar_per_hari = $gaji_dasar_per_hari;
+    }
+
+    // ================= METODE ABSTRACT =================
+    
     /**
-     * Abstract Method untuk menghitung pendapatan bulanan.
-     * Ini sengaja kosongan karena WAJIB di-implementasikan secara spesifik 
-     * di class anak (KaryawanTetap, KaryawanKontrak, KaryawanMagang).
-     * Logikanya tiap jenis karyawan kan rumus hitung duitnya beda-beda, Han.
+     * Wajib di-override di class anak (KaryawanTetap, KaryawanKontrak, KaryawanMagang)
+     * buat ngitung gaji bersih sesuai rumus jenis karyawannya masing-masing.
      */
-    abstract public function hitungPendapatanBulanan();
+    abstract public function hitung_gaji_bersih();
+
+    /**
+     * Wajib di-override di class anak untuk nampilin profil 
+     * dan atribut spesifik dari masing-masing jenis karyawan.
+     */
+    abstract public function tampil_profil_karyawan();
 }
 ?>
